@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intern Communication AI System</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h1 class="app-title">Intern Communication AI System</h1>
+            </div>
+            <div class="header-subtitle">
+                AI-Powered Communication Analysis & Insights
+            </div>
+        </div>
+        <div class="header-gradient"></div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container">
+        <!-- Upload Section -->
+        <section class="upload-section" id="uploadSection">
+            <div class="section-header">
+                <h2 class="section-title">
+                </h2>
+                <p class="section-description">
+                    Upload an Excel file with intern communication scores and generate AI-powered insights
+                </p>
+            </div>
+
+            <div class="upload-card">
+                <form id="uploadForm">
+                    <!-- Drag and Drop Area -->
+                    <div class="drop-zone" id="dropZone">
+                        <div class="drop-zone-content">
+                            <div class="upload-icon">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                            </div>
+                            <h3 class="drop-zone-title">Drag & Drop Excel File</h3>
+                            <p class="drop-zone-text">or click to browse</p>
+                            <input type="file" id="fileInput" accept=".xlsx,.xls" hidden>
+                            <button type="button" class="btn-browse" id="browseBtn">
+                                <i class="fas fa-folder-open"></i>
+                                Browse Files
+                            </button>
+                        </div>
+                        <div class="file-info" id="fileInfo" style="display: none;">
+                            <i class="fas fa-file-excel file-icon"></i>
+                            <span class="file-name" id="fileName"></span>
+                            <button type="button" class="btn-remove" id="removeFileBtn">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Intern Name Autocomplete -->
+                    <div class="input-group">
+                        <label for="internName" class="input-label">
+                            <i class="fas fa-user"></i>
+                            Select Intern
+                        </label>
+                        <div class="autocomplete-container">
+                            <input type="text" id="internName" class="input-field autocomplete-input"
+                                placeholder="Type to search or select 'overall'" autocomplete="off" disabled>
+                            <i class="fas fa-chevron-down autocomplete-arrow"></i>
+                            <div class="autocomplete-dropdown" id="autocompleteDropdown">
+                                <div class="autocomplete-item" data-value="overall">
+                                    <i class="fas fa-users"></i>
+                                    <span><strong>Overall Report</strong> - All Interns</span>
+                                </div>
+                            </div>
+                        </div>
+                        <small class="input-hint">
+                            <i class="fas fa-info-circle"></i>
+                            Upload a file first to see available intern names
+                        </small>
+                    </div>
+
+                    <!-- Generate Button -->
+                    <button type="submit" class="btn-generate" id="generateBtn" disabled>
+                        <span class="btn-text">
+                            <i class="fas fa-magic"></i>
+                            Generate AI Report
+                        </span>
+                        <span class="btn-loader" style="display: none;">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            Analyzing...
+                        </span>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Report Section -->
+        <section class="report-section" id="reportSection" style="display: none;">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-chart-line"></i>
+                    Communication Analysis Report
+                </h2>
+                <p class="section-description" id="reportDescription"></p>
+            </div>
+
+            <!-- Skills Evaluation Cards -->
+            <div class="skills-grid" id="skillsGrid">
+                <!-- Skills cards will be dynamically inserted here -->
+            </div>
+
+            <!-- AI Insights Section -->
+            <div class="insights-container">
+                <!-- Strengths -->
+                <div class="insight-card strengths-card">
+                    <div class="insight-header">
+                        <div class="insight-icon strengths-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3 class="insight-title">Key Strengths</h3>
+                    </div>
+                    <ul class="insight-list" id="strengthsList">
+                        <!-- Dynamically populated -->
+                    </ul>
+                </div>
+
+                <!-- Weaknesses -->
+                <div class="insight-card weaknesses-card">
+                    <div class="insight-header">
+                        <div class="insight-icon weaknesses-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <h3 class="insight-title">Areas for Improvement</h3>
+                    </div>
+                    <ul class="insight-list" id="weaknessesList">
+                        <!-- Dynamically populated -->
+                    </ul>
+                </div>
+
+                <!-- Recommendations -->
+                <div class="insight-card recommendations-card">
+                    <div class="insight-header">
+                        <div class="insight-icon recommendations-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="insight-title">Recommendations</h3>
+                    </div>
+                    <ul class="insight-list" id="recommendationsList">
+                        <!-- Dynamically populated -->
+                    </ul>
+                </div>
+
+                <!-- Motivational Note -->
+                <div class="motivational-card">
+                    <div class="motivational-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="motivational-content">
+                        <h3 class="motivational-title">Motivational Note</h3>
+                        <p class="motivational-text" id="motivationalText">
+                            <!-- Dynamically populated -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Generate Another Report Button -->
+            <div class="action-footer">
+                <button class="btn-secondary" id="newReportBtn">
+                    <i class="fas fa-plus-circle"></i>
+                    Generate Another Report
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Intern Communication AI System. Powered by Gemini AI.</p>
+    </footer>
+
+    <script src="/static/script.js"></script>
+
+</body>
+
+</html>
