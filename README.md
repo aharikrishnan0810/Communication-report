@@ -1,7 +1,7 @@
 # Intern Communication AI System
 
 ## 🌟 Overview
-The **Intern Communication AI System** is a sophisticated, full-stack analytical platform designed to evaluate and enhance intern communication skills. By integrating advanced data processing with state-of-the-art Large Language Models (LLMs), specifically **Google Gemini Flash**, the system provides personalized, actionable insights that traditional scoring methods often overlook.
+The **Communication AI System** is a sophisticated, full-stack analytical platform designed to evaluate and enhance intern communication skills. By integrating advanced data processing with state-of-the-art Large Language Models (LLMs), specifically **Google Gemini Flash**, the system provides personalized, actionable insights that traditional scoring methods often overlook.
 
 It transforms raw quantitative evaluation scores from Excel workbooks into qualitative professional development roadmaps, featuring detailed strengths, identified gaps, and strategic recommendations.
 
