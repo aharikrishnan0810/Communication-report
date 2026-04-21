@@ -1,4 +1,4 @@
-# Intern Communication AI System
+# Communication Report Genartor  AI System
 
 ## 🌟 Overview
 The **Communication AI System** is a sophisticated, full-stack analytical platform designed to evaluate and enhance intern communication skills. By integrating advanced data processing with state-of-the-art Large Language Models (LLMs), specifically **Google Gemini Flash**, the system provides personalized, actionable insights that traditional scoring methods often overlook.
